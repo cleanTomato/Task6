@@ -13,7 +13,17 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
+/**
+ * Вторая активность приложения, которая содержит нижнее меню и фрагменты.
+ */
 public class SecondActivity extends AppCompatActivity {
+
+    /**
+     * Вызывается при создании активности.
+     *
+     * @param savedInstanceState сохраненное состояние активности
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -28,6 +38,7 @@ public class SecondActivity extends AppCompatActivity {
         bottomNavigationView.setBackground(new ColorDrawable(Color.LTGRAY));
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.redd) {
+                // Открытие фрагмента красного цвета
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 Fragment_1_s fragment1 = new Fragment_1_s();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -35,6 +46,7 @@ public class SecondActivity extends AppCompatActivity {
                 fragmentTransaction.commit();
                 actionBar.setTitle("Красный");
             } else if (item.getItemId() == R.id.green) {
+                // Открытие фрагмента зеленого цвета
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 Fragment_2_s fragment2 = new Fragment_2_s();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -42,6 +54,7 @@ public class SecondActivity extends AppCompatActivity {
                 fragmentTransaction.commit();
                 actionBar.setTitle("Зеленый");
             } else if (item.getItemId() == R.id.blue) {
+                // Открытие фрагмента синего цвета
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 Fragment_s_3 fragment3 = new Fragment_s_3();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

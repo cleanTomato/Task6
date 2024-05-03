@@ -20,10 +20,19 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
+
+/**
+ * Главная активность приложения, которая содержит боковое меню и фрагменты.
+ */
 public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
     private DrawerLayout drawer;
 
+    /**
+     * Вызывается при создании активности.
+     *
+     * @param savedInstanceState сохраненное состояние активности
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 if (id == R.id.redd){
+                    // Открытие фрагмента красного цвета
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     Fragment1 fragment1 = new Fragment1();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -54,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
                     drawer.close();
                 } else if (id == R.id.green) {
+                    // Открытие фрагмента зеленого цвета
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     Fragment2 fragment2 = new Fragment2();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -61,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
                     drawer.close();
                 } else if (id == R.id.blue) {
+                    // Открытие фрагмента синего цвета
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     Fragment3 fragment3 = new Fragment3();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -68,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
                     drawer.close();
                 }else if (id == R.id.next) {
+                    // Переход на вторую активность
                     Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                     startActivity(intent);
                     drawer.close();
@@ -77,6 +90,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    /**
+     * Обрабатывает нажатие на элементы меню.
+     *
+     * @param item выбранный элемент меню
+     * @return true, если элемент меню был обработан
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (toggle.onOptionsItemSelected(item)) {
